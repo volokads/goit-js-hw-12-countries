@@ -1,6 +1,6 @@
 export const getRefs = () => {
     return {
-        list: document.querySelector('.contry__list'),
+        list: document.querySelector('.country__list'),
         input: document.getElementById('input')}
     
  }
