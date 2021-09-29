@@ -7,7 +7,7 @@ import { information, successInfo, errorInfo } from './notification.js'
 import { updateCountry } from './updateCountry.js'
 const refs = getRefs()
   
-  const debounceCallback = debounce((e) => {
+const debounceCallback = debounce((e) => {
       let inputValue = e.target.value.trim()
       if (inputValue === '') return
       fetchCoutry(inputValue).then(matchesLenght)
@@ -15,18 +15,18 @@ const refs = getRefs()
     
     refs.input.addEventListener('input', debounceCallback )
     
-    function matchesLenght(array) {
-        if (array.length > 10) {
-            errorInfo()
-        }
-        if (array.length >= 2 && array.length <= 10) {
-            refs.list.innerHTML = itemTemplate(array)
-            information()
-        }
-        if (array.length === 1) {
-            const country = updateCountry(array)
-            refs.list.innerHTML = countryDecsription(country)
-            successInfo()
-        }
+function matchesLenght(array) {
+    if (array.length > 10) {
+        errorInfo()
+    }
+    if (array.length >= 2 && array.length <= 10) {
+        refs.list.innerHTML = itemTemplate(array)
+        information()
+    }
+    if (array.length === 1) {
+        const country = updateCountry(array)
+        refs.list.innerHTML = countryDecsription(country)
+        successInfo()
+    }
 }
 
